@@ -112,7 +112,7 @@ while true
     end
 
     sendPack = [dataType, uint8(seqNum), length(sendData), sendData];
-    disp(sendData);
+    %disp(sendData);
     txdata = bpsk_tx_func(sendPack);
     txdata = round(txdata .* 2^14);
     txdata = repmat(txdata, 8, 1);
@@ -135,7 +135,7 @@ while true
                 continue;
             elseif (rStr(1) == 1 && rStr(2) == seqNum)
                 fprintf('send data success\n');
-                fprintf('=============================');
+                fprintf('=============================\n');
                 flagSuccess = 1;
                 seqNum = seqNum + 1;
                 if seqNum == 256
